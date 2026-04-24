@@ -1,0 +1,190 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #1a1a1a;
+    --gris-suave: #f8f8f8;
+    --tornasol: linear-gradient(45deg, #e0eafc, #cfdef3, #eef2f3, #8e9eab);
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--blanco);
+    color: var(--negro);
+    text-align: center;
+}
+
+header {
+    padding: 50px 20px;
+    background: var(--blanco);
+}
+
+/* Logo agrandado */
+.logo {
+    width: 220px; 
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.brand-title {
+    letter-spacing: 8px;
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto 120px auto;
+}
+
+.remera-card {
+    background: var(--gris-suave);
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.remera-card:hover {
+    transform: translateY(-5px);
+}
+
+.remera-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.add-btn {
+    background: var(--negro);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.add-btn:disabled {
+    background: #d1d1d1;
+    cursor: not-allowed;
+}
+
+#footer-cart {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-info {
+    text-align: left;
+}
+
+#total-price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--tornasol);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#btn-whatsapp {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+footer {
+    padding: 40px;
+    background: #fafafa;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--negro);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.remera-card h3 {
+    text-transform: uppercase; /* Hace que el nombre se vea todo en mayúsculas, muy Voglio */
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin: 15px 0 5px 0;
+    font-size: 1.1rem;
+}
+/* Contenedor de talles */
+.talles-container {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.talles-container select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Nota lateral de envíos */
+.info-envio {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    background: var(--tornasol);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    line-height: 1.4;
+    z-index: 900;
+}
+
+.info-envio h4 {
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Ajuste para que la nota no tape las remeras en el celular */
+@media (max-width: 900px) {
+    .info-envio {
+        position: relative;
+        transform: none;
+        width: 80%;
+        margin: 20px auto;
+        right: auto;
+        top: auto;
+    }
+}
