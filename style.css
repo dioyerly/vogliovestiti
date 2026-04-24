@@ -6,69 +6,81 @@
     --tornasol: linear-gradient(45deg, #fdfbfb 0%, #ebedee 100%);
 }
 
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     background-color: var(--blanco);
     -webkit-font-smoothing: antialiased;
+    max-width: 480px;
+    margin: auto;
 }
 
 /* HEADER MINIMALISTA */
 header {
-    padding: 15px 0;
+    padding: 15px 10px;
     text-align: center;
     border-bottom: 1px solid var(--gris-claro);
 }
 
 .logo {
-    width: 80px; /* Mucho más pequeño y delicado */
+    width: 70px;
     height: auto;
 }
 
 .brand-title {
-    font-size: 1.2rem;
-    letter-spacing: 5px;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
     font-weight: 300;
     margin: 5px 0;
     text-transform: uppercase;
 }
 
-/* CATÁLOGO EN GRILLA FINA */
+/* CATÁLOGO */
 main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos productos por fila siempre */
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     padding: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 110px;
 }
 
 .remera-card {
     border: none;
-    text-align: left; /* Estilo boutique */
+    text-align: left;
+    transition: transform 0.15s ease;
+}
+
+.remera-card:active {
+    transform: scale(0.98);
 }
 
 .remera-card img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: var(--gris-claro);
 }
 
 .precio {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin: 5px 0;
+    margin: 4px 0;
 }
 
 .talles-container {
-    font-size: 0.7rem;
-    margin-bottom: 8px;
+    font-size: 0.65rem;
+    margin-bottom: 6px;
     color: var(--gris-oscuro);
 }
 
 .talles-container select {
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     padding: 2px;
 }
 
@@ -76,42 +88,44 @@ main {
     background: var(--negro);
     color: white;
     border: none;
-    padding: 8px;
+    padding: 7px;
     width: 100%;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 4px;
 }
 
-/* NOTA DE ENVÍO - DISCRETA AL FINAL */
+/* INFO ENVÍO */
 .info-envio {
-    grid-column: span 2; /* Ocupa el ancho de las dos columnas al final */
+    grid-column: span 2;
     background: var(--gris-claro);
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
-    font-size: 0.75rem;
-    margin-top: 20px;
+    font-size: 0.7rem;
+    margin-top: 15px;
     color: var(--gris-oscuro);
 }
 
 .info-envio h4 { 
     margin: 0 0 5px 0; 
-    font-size: 0.8rem; 
+    font-size: 0.75rem; 
 }
 
-/* BARRA DE PEDIDO COMPACTA */
+/* BARRA PEDIDO */
 #footer-cart {
     position: fixed;
-    bottom: 0;
-    width: 100%;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    width: auto;
     background: white;
-    padding: 10px 15px;
-    box-sizing: border-box;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--gris-claro);
+    border: 1px solid var(--gris-claro);
+    border-radius: 15px;
     z-index: 1000;
 }
 
@@ -120,33 +134,67 @@ main {
     flex-direction: column;
 }
 
-.cart-info span { font-size: 0.7rem; color: #888; }
-#total-price { font-size: 1rem; font-weight: bold; color: var(--negro); }
+.cart-info span { 
+    font-size: 0.65rem; 
+    color: #888; 
+}
+
+#total-price { 
+    font-size: 0.95rem; 
+    font-weight: bold; 
+    color: var(--negro); 
+}
 
 #btn-whatsapp {
-    background: #1a1a1a; /* Negro para mantener la estética, o #25d366 si preferís verde */
+    background: var(--negro);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 0.8rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-/* AJUSTE PARA COMPUTADORA (Escritorio) */
+/* DESKTOP */
 @media (min-width: 768px) {
+
+    body {
+        max-width: 1200px;
+    }
+
     main {
-        grid-template-columns: repeat(4, 1fr); /* 4 productos por fila en PC */
+        grid-template-columns: repeat(4, 1fr);
         max-width: 1000px;
         margin: 0 auto 100px auto;
+        gap: 15px;
     }
-    
+
+    .logo {
+        width: 90px;
+    }
+
+    .brand-title {
+        font-size: 1.5rem;
+    }
+
+    #footer-cart {
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        padding: 15px 30px;
+    }
+
+    #btn-whatsapp {
+        font-size: 0.85rem;
+        padding: 10px 25px;
+    }
+
     .info-envio {
         position: fixed;
         right: 20px;
         top: 150px;
-        width: 200px;
+        width: 220px;
         grid-column: auto;
     }
 }
