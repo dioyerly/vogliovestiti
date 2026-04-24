@@ -1,103 +1,75 @@
 :root {
     --blanco: #ffffff;
     --negro: #1a1a1a;
-    --gris-suave: #f8f8f8;
-    --tornasol: linear-gradient(45deg, #e0eafc, #cfdef3, #eef2f3, #8e9eab);
-}
-
-/* RESET CLAVE */
-* {
-    box-sizing: border-box;
+    --gris-oscuro: #333;
+    --gris-claro: #f4f4f4;
+    --tornasol: linear-gradient(45deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 0;
     background-color: var(--blanco);
-    color: var(--negro);
-    overflow-x: hidden;
-    max-width: 480px; /* hace que en móvil se vea tipo app */
-    margin: auto;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
+/* HEADER MINIMALISTA */
 header {
-    padding: 20px 10px;
-    background: var(--blanco);
+    padding: 15px 0;
     text-align: center;
+    border-bottom: 1px solid var(--gris-claro);
 }
 
 .logo {
-    width: 140px;
+    width: 80px; /* Mucho más pequeño y delicado */
     height: auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .brand-title {
-    letter-spacing: 3px;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
     font-weight: 300;
-    font-size: 1.6rem;
-    margin-top: 10px;
+    margin: 5px 0;
     text-transform: uppercase;
 }
 
-/* INFO ENVÍO */
-.info-envio {
-    background: var(--tornasol);
-    padding: 12px;
-    margin: 10px 15px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    line-height: 1.4;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.info-envio h4 {
-    margin: 0 0 5px 0;
-    font-size: 0.85rem;
-}
-
-/* CATÁLOGO */
+/* CATÁLOGO EN GRILLA FINA */
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    padding: 12px;
-    margin-bottom: 120px;
+    grid-template-columns: repeat(2, 1fr); /* Dos productos por fila siempre */
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 100px;
 }
 
 .remera-card {
-    background: var(--gris-suave);
-    padding: 8px;
-    border-radius: 12px;
-    border: 1px solid #eee;
-    text-align: center;
-    transition: transform 0.15s ease;
-}
-
-.remera-card:active {
-    transform: scale(0.98);
+    border: none;
+    text-align: left; /* Estilo boutique */
 }
 
 .remera-card img {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
     border-radius: 8px;
+    background-color: var(--gris-claro);
 }
 
 .precio {
+    font-size: 0.9rem;
     font-weight: 600;
-    margin: 8px 0 4px;
-    font-size: 1rem;
+    margin: 5px 0;
 }
 
 .talles-container {
+    font-size: 0.7rem;
     margin-bottom: 8px;
-    font-size: 0.75rem;
+    color: var(--gris-oscuro);
+}
+
+.talles-container select {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    padding: 2px;
 }
 
 .add-btn {
@@ -105,98 +77,76 @@ main {
     color: white;
     border: none;
     padding: 8px;
-    border-radius: 15px;
     width: 100%;
-    font-weight: 500;
-    font-size: 0.85rem;
-    cursor: pointer;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
 }
 
-/* CARRITO */
+/* NOTA DE ENVÍO - DISCRETA AL FINAL */
+.info-envio {
+    grid-column: span 2; /* Ocupa el ancho de las dos columnas al final */
+    background: var(--gris-claro);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    margin-top: 20px;
+    color: var(--gris-oscuro);
+}
+
+.info-envio h4 { 
+    margin: 0 0 5px 0; 
+    font-size: 0.8rem; 
+}
+
+/* BARRA DE PEDIDO COMPACTA */
 #footer-cart {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-    padding: 12px;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 10px 15px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    border-top: 1px solid var(--gris-claro);
     z-index: 1000;
-    border-radius: 20px;
 }
 
 .cart-info {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 0.85rem;
+    flex-direction: column;
 }
 
-#total-price {
-    font-weight: bold;
-    color: var(--negro);
-}
+.cart-info span { font-size: 0.7rem; color: #888; }
+#total-price { font-size: 1rem; font-weight: bold; color: var(--negro); }
 
 #btn-whatsapp {
-    background: #25d366;
+    background: #1a1a1a; /* Negro para mantener la estética, o #25d366 si preferís verde */
     color: white;
     border: none;
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-/* DESKTOP */
-@media (min-width: 768px) {
-    body {
-        max-width: 1200px;
-    }
-
-    .logo {
-        width: 200px;
-    }
-
-    .brand-title {
-        font-size: 2.5rem;
-    }
-
-    main {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        padding: 40px;
-        gap: 20px;
-    }
-
-    #footer-cart {
-        flex-direction: row;
-        padding: 20px;
-        justify-content: space-around;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-    }
-
-    #btn-whatsapp {
-        width: auto;
-        padding: 15px 40px;
-        font-size: 1rem;
-    }
-
-    .info-envio {
-        width: 300px;
-        margin: 20px auto;
-    }
-}
-
-footer {
-    padding-bottom: 120px;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 0.8rem;
-    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* AJUSTE PARA COMPUTADORA (Escritorio) */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: repeat(4, 1fr); /* 4 productos por fila en PC */
+        max-width: 1000px;
+        margin: 0 auto 100px auto;
+    }
+    
+    .info-envio {
+        position: fixed;
+        right: 20px;
+        top: 150px;
+        width: 200px;
+        grid-column: auto;
+    }
 }
