@@ -6,10 +6,6 @@
     --tornasol: linear-gradient(45deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -17,7 +13,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER (NO TOCO TAMAÑOS) */
+/* HEADER MINIMALISTA */
 header {
     padding: 15px 0;
     text-align: center;
@@ -25,7 +21,7 @@ header {
 }
 
 .logo {
-    width: 80px; /* igual que el tuyo */
+    width: 80px; /* Mucho más pequeño y delicado */
     height: auto;
 }
 
@@ -37,43 +33,35 @@ header {
     text-transform: uppercase;
 }
 
-/* GRID */
+/* CATÁLOGO EN GRILLA FINA */
 main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px; /* leve ajuste para que respire */
+    grid-template-columns: repeat(2, 1fr); /* Dos productos por fila siempre */
+    gap: 10px;
     padding: 10px;
-    margin-bottom: 110px;
+    margin-bottom: 100px;
 }
 
-/* CARD */
 .remera-card {
     border: none;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    text-align: left; /* Estilo boutique */
 }
 
-/* 🔥 FIX IMPORTANTE: TODAS LAS IMÁGENES IGUALES */
 .remera-card img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* esto soluciona el desalineado */
-    object-fit: cover;
     border-radius: 8px;
     background-color: var(--gris-claro);
 }
 
-/* TEXTO */
 .precio {
     font-size: 0.9rem;
     font-weight: 600;
-    margin: 6px 0 2px;
+    margin: 5px 0;
 }
 
 .talles-container {
     font-size: 0.7rem;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: var(--gris-oscuro);
 }
 
@@ -84,7 +72,6 @@ main {
     padding: 2px;
 }
 
-/* BOTÓN */
 .add-btn {
     background: var(--negro);
     color: white;
@@ -97,9 +84,9 @@ main {
     border-radius: 4px;
 }
 
-/* INFO ENVÍO */
+/* NOTA DE ENVÍO - DISCRETA AL FINAL */
 .info-envio {
-    grid-column: span 2;
+    grid-column: span 2; /* Ocupa el ancho de las dos columnas al final */
     background: var(--gris-claro);
     padding: 15px;
     border-radius: 8px;
@@ -113,7 +100,7 @@ main {
     font-size: 0.8rem; 
 }
 
-/* FOOTER */
+/* BARRA DE PEDIDO COMPACTA */
 #footer-cart {
     position: fixed;
     bottom: 0;
@@ -133,19 +120,11 @@ main {
     flex-direction: column;
 }
 
-.cart-info span { 
-    font-size: 0.7rem; 
-    color: #888; 
-}
-
-#total-price { 
-    font-size: 1rem; 
-    font-weight: bold; 
-    color: var(--negro); 
-}
+.cart-info span { font-size: 0.7rem; color: #888; }
+#total-price { font-size: 1rem; font-weight: bold; color: var(--negro); }
 
 #btn-whatsapp {
-    background: #1a1a1a;
+    background: #1a1a1a; /* Negro para mantener la estética, o #25d366 si preferís verde */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -155,42 +134,10 @@ main {
     text-transform: uppercase;
 }
 
-/* 📱 AJUSTES SOLO PARA MÓVIL */
-@media (max-width: 480px) {
-
-    main {
-        gap: 10px;
-        padding: 8px;
-    }
-
-    .remera-card {
-        gap: 4px;
-    }
-
-    .precio {
-        font-size: 0.85rem;
-    }
-
-    .add-btn {
-        padding: 7px;
-        font-size: 0.7rem;
-    }
-
-    #footer-cart {
-        padding: 8px 10px;
-    }
-
-    #btn-whatsapp {
-        padding: 8px 12px;
-        font-size: 0.7rem;
-    }
-}
-
-/* 💻 ESCRITORIO (LO TUYO, CASI IGUAL) */
+/* AJUSTE PARA COMPUTADORA (Escritorio) */
 @media (min-width: 768px) {
-
     main {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* 4 productos por fila en PC */
         max-width: 1000px;
         margin: 0 auto 100px auto;
     }
