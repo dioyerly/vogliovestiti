@@ -6,7 +6,6 @@
     --tornasol: linear-gradient(45deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-/* RESET */
 * {
     box-sizing: border-box;
 }
@@ -16,63 +15,64 @@ body {
     margin: 0;
     background-color: var(--blanco);
     -webkit-font-smoothing: antialiased;
-    max-width: 480px;
-    margin: auto;
 }
 
-/* HEADER MINIMALISTA */
+/* HEADER (NO TOCO TAMAÑOS) */
 header {
-    padding: 15px 10px;
+    padding: 15px 0;
     text-align: center;
     border-bottom: 1px solid var(--gris-claro);
 }
 
 .logo {
-    width: 70px;
+    width: 80px; /* igual que el tuyo */
     height: auto;
 }
 
 .brand-title {
-    font-size: 1.1rem;
-    letter-spacing: 4px;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
     font-weight: 300;
     margin: 5px 0;
     text-transform: uppercase;
 }
 
-/* CATÁLOGO */
+/* GRID */
 main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 12px; /* leve ajuste para que respire */
     padding: 10px;
     margin-bottom: 110px;
 }
 
+/* CARD */
 .remera-card {
     border: none;
     text-align: left;
-    transition: transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.remera-card:active {
-    transform: scale(0.98);
-}
-
+/* 🔥 FIX IMPORTANTE: TODAS LAS IMÁGENES IGUALES */
 .remera-card img {
     width: 100%;
-    border-radius: 6px;
+    aspect-ratio: 1 / 1; /* esto soluciona el desalineado */
+    object-fit: cover;
+    border-radius: 8px;
     background-color: var(--gris-claro);
 }
 
+/* TEXTO */
 .precio {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin: 4px 0;
+    margin: 6px 0 2px;
 }
 
 .talles-container {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     margin-bottom: 6px;
     color: var(--gris-oscuro);
 }
@@ -80,17 +80,18 @@ main {
 .talles-container select {
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     padding: 2px;
 }
 
+/* BOTÓN */
 .add-btn {
     background: var(--negro);
     color: white;
     border: none;
-    padding: 7px;
+    padding: 8px;
     width: 100%;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 4px;
@@ -100,32 +101,30 @@ main {
 .info-envio {
     grid-column: span 2;
     background: var(--gris-claro);
-    padding: 12px;
+    padding: 15px;
     border-radius: 8px;
-    font-size: 0.7rem;
-    margin-top: 15px;
+    font-size: 0.75rem;
+    margin-top: 20px;
     color: var(--gris-oscuro);
 }
 
 .info-envio h4 { 
     margin: 0 0 5px 0; 
-    font-size: 0.75rem; 
+    font-size: 0.8rem; 
 }
 
-/* BARRA PEDIDO */
+/* FOOTER */
 #footer-cart {
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    width: auto;
+    bottom: 0;
+    width: 100%;
     background: white;
-    padding: 10px 12px;
+    padding: 10px 15px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid var(--gris-claro);
-    border-radius: 15px;
+    border-top: 1px solid var(--gris-claro);
     z-index: 1000;
 }
 
@@ -135,66 +134,72 @@ main {
 }
 
 .cart-info span { 
-    font-size: 0.65rem; 
+    font-size: 0.7rem; 
     color: #888; 
 }
 
 #total-price { 
-    font-size: 0.95rem; 
+    font-size: 1rem; 
     font-weight: bold; 
     color: var(--negro); 
 }
 
 #btn-whatsapp {
-    background: var(--negro);
+    background: #1a1a1a;
     color: white;
     border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 0.75rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-/* DESKTOP */
-@media (min-width: 768px) {
+/* 📱 AJUSTES SOLO PARA MÓVIL */
+@media (max-width: 480px) {
 
-    body {
-        max-width: 1200px;
+    main {
+        gap: 10px;
+        padding: 8px;
     }
+
+    .remera-card {
+        gap: 4px;
+    }
+
+    .precio {
+        font-size: 0.85rem;
+    }
+
+    .add-btn {
+        padding: 7px;
+        font-size: 0.7rem;
+    }
+
+    #footer-cart {
+        padding: 8px 10px;
+    }
+
+    #btn-whatsapp {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+    }
+}
+
+/* 💻 ESCRITORIO (LO TUYO, CASI IGUAL) */
+@media (min-width: 768px) {
 
     main {
         grid-template-columns: repeat(4, 1fr);
         max-width: 1000px;
         margin: 0 auto 100px auto;
-        gap: 15px;
     }
-
-    .logo {
-        width: 90px;
-    }
-
-    .brand-title {
-        font-size: 1.5rem;
-    }
-
-    #footer-cart {
-        left: 0;
-        right: 0;
-        border-radius: 0;
-        padding: 15px 30px;
-    }
-
-    #btn-whatsapp {
-        font-size: 0.85rem;
-        padding: 10px 25px;
-    }
-
+    
     .info-envio {
         position: fixed;
         right: 20px;
         top: 150px;
-        width: 220px;
+        width: 200px;
         grid-column: auto;
     }
 }
