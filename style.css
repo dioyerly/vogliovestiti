@@ -213,3 +213,27 @@ footer {
     font-size: 0.8rem;
     color: #888;
 }
+
+/* 📱 INFO ENVÍO COMO TARJETA FLOTANTE DISCRETA */
+@media (max-width: 480px) {
+
+    .info-envio {
+        position: fixed;
+        top: 80px;          /* debajo del header */
+        right: 10px;
+        width: 160px;       /* más chica */
+        padding: 10px;
+        font-size: 0.7rem;
+        line-height: 1.3;
+        border-radius: 10px;
+        margin: 0;
+        z-index: 900;
+        opacity: 0.95;
+    }
+
+    .info-envio h4 {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+    }
+
+}
